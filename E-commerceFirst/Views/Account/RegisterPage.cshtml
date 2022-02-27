@@ -1,0 +1,125 @@
+﻿@model EntityLayer.Concrete.NewUser
+@{
+    ViewData["Title"] = "RegisterPage";
+    Layout = null;
+}
+
+<link rel="icon" type="image/png" href="~/Login_v4/images/icons/favicon.ico" />
+
+
+<link href="~/colorlib-regform-8/css/style.css" rel="stylesheet" />
+<link href="~/colorlib-regform-8/fonts/material-icon/css/material-design-iconic-font.css" rel="stylesheet" />
+<link href="~/colorlib-regform-8/fonts/material-icon/css/material-design-iconic-font.min.css" rel="stylesheet" />
+<script src="~/colorlib-regform-8/js/main.js"></script>
+<script src="~/colorlib-regform-8/vendor/jquery/jquery-ui.min.js"></script>
+<script src="~/colorlib-regform-8/vendor/jquery/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Giriş/Qeydiyyat</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="~/colorlib-regform-8/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="~/colorlib-regform-8/css/style.css">
+</head>
+<body>
+
+    <div class="main">
+
+        <section class="signup">
+            <!-- <img src="images/signup-bg.jpg" alt=""> -->
+            <div class="container">
+                <div class="signup-content">
+
+                    @using (Html.BeginForm("RegisterPage", "Account", FormMethod.Post))
+                    {
+                        @*<form method="POST" id="signup-form" class="signup-form">*@
+                        <h2 class="form-title">Hesab yaradın</h2>
+
+                        <div class="form-group">
+                            <label for="validationCustom01">Ad</label><br />
+                            @Html.TextBoxFor(x => x.NewUserName, new { @class = "form-input", @style = "width:490px; heigth:5px" })
+                            @Html.ValidationMessageFor(x => x.NewUserName, "", new { @style = "color:red" })
+                            @*<input type="text" class="form-input" name="NewUserName" id="name" placeholder="Ad" />*@
+                        </div>
+                        <div class="form-group">
+                            <label for="validationCustom02">Soyad</label><br />
+                            @Html.TextBoxFor(x => x.NewUserSurname, new { @class = "form-input", @style = "width:490px; heigth:5px" })
+                            @Html.ValidationMessageFor(x => x.NewUserSurname, "", new { @style = "color:red" })
+                            @*<input type="text" class="form-input" name="NewUserSurname" id="name" placeholder="Soyad" />*@
+                        </div>
+                        <div class="form-group">
+                            <label for="validationCustom03">Nömrə</label><br />
+                            @Html.TextBoxFor(x => x.NewUserPhoneNumber, new { @class = "form-input", @style = "width:490px; heigth:5px" })
+                            @Html.ValidationMessageFor(x => x.NewUserPhoneNumber, "", new { @style = "color:red" })
+                            @*<input type="number" class="form-input" name="NewUserPhoneNumber" id="number" placeholder="Nömrə" />*@
+                        </div>
+                        <div class="form-group">
+                            <label for="validationCustom04">Email adresi</label><br />
+                            @Html.TextBoxFor(x => x.NewUserMail, new { @class = "form-input", @style = "width:490px; heigth:5px" })
+                            @Html.ValidationMessageFor(x => x.NewUserMail, "", new { @style = "color:red" })
+                            @*<input type="email" class="form-input" name="NewUserMail" id="email" placeholder="Email adresi" />*@
+                        </div>
+                        <div class="form-group">
+                            <label for="validationCustom04">Şifrə</label><br />
+                            @Html.TextBoxFor(x => x.NewUserPassword, new { @class = "form-input", @style = "width:490px; heigth:5px", @type = "password" })
+                            @Html.ValidationMessageFor(x => x.NewUserPassword, "", new { @style = "color:red" })
+                            @*<input type="password" class="form-input" name="NewUserPassword" id="password" placeholder="Şifrə" />*@
+                            @*<span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>*@
+                        </div>
+                        <div class="form-group">
+                            <label for="validationCustom04">Şifrə təkrarı</label><br />
+                            @Html.TextBoxFor(x => x.NewUserPassword, new { @class = "form-input", @style = "width:490px; heigth:5px", @type = "password" })
+                            @Html.ValidationMessage("Şifrəni düzgün daxil edin", new { @style = "color:red" })
+                            @*<input type="password" class="form-input" name="re_password" id="re_password" placeholder="Şifrənin təkrarı" />*@
+                        </div>
+                        <div class="form-control">
+                            <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                            <label for="agree-term" class="label-agree-term"><span><span></span></span><a href="#" id="test1" class="term-service">Şərtlərinizlə</a>  tanış oldum və qəbul edirəm.</label>
+                        </div>
+                        <div class="form-control">
+                            <input type="submit" name="submit" id="submit" class="form-submit" value="Qeydiyyat" />
+
+                        </div>
+
+                        @*</form>*@
+                    }
+                    <p class="loginhere">
+                        Hesabınız var ? <a href="/Account/Index/" class="loginhere-link">Daxil ol</a>
+                    </p>
+                </div>
+            </div>
+            <script>
+                $('#test1').click(function () {
+                    swal("Qeydiyyat şərtləri", "test test test test test test test test test test test test");
+                });
+            </script>
+
+
+
+            @*<script>
+                    $('#submit').click(function () {
+                        swal("Qeydiyyat uğurla başa çatdı", "", "success");
+                    });
+                </script>*@
+
+        </section>
+
+    </div>
+
+    <!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
+

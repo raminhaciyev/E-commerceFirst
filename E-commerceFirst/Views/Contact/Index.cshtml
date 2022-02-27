@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/ContactSection.cshtml";
+}
+
+<link href="~/famm/css/bootstrap.css" rel="stylesheet" />
+<script src="~/famm/js/bootstrap.js"></script>
+<link href="~/famm/css/style.css" rel="stylesheet" />
+<link href="~/famm/css/responsive.css" rel="stylesheet" />
+<link href="~/famm/css/font-awesome.min.css" rel="stylesheet" />
+
+<!-- sweetalert -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<section class="why_section layout_padding">
+    <div class="container">
+        @using (Html.BeginForm("Index", "Contact", FormMethod.Post))
+        {
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="full">
+                        <form action="index.html">
+                            <fieldset>
+                                <input type="text" placeholder="Ad və soyadınızı daxil edin.." name="ContactUserName" required="" />
+                                <input type="email" placeholder="Email adresinizi daxil edin.." name="ContactMail" required="" />
+                                <input type="text" placeholder="Mövzunu daxil edin.." name="ContactSubject" required="" />
+                                <textarea placeholder="Mesajınızı daxil edin.." name="ContactMessage" required=""></textarea>
+                                <input type="submit" id="submit" value="Göndər" />
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <script>
+        $('#submit').click(function () {
+            swal("Mesajınız göndərildi", "", "success");
+        });
+    </script>
+</section>
+
+
+
+

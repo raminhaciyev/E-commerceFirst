@@ -1,0 +1,137 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="shortcut icon" href="~/famm/images/favicon.png" type="">
+    <title>HR - Öz Tərzini Yarat!</title>
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="~/famm/css/bootstrap.css" />
+    <!-- font awesome style -->
+    <link href="~/famm/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="~/famm/css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="~/famm/css/responsive.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="hero_area">
+        <!-- header section strats -->
+        @await Html.PartialAsync("Header")
+        <!-- end header section -->
+        <!-- slider section -->
+        @await Html.PartialAsync("Slider")
+        <!-- end slider section -->
+
+    </div>
+    <!-- why section -->
+    @await Html.PartialAsync("Why")
+    <!-- end why section -->
+
+    @RenderBody()
+
+    @await Component.InvokeAsync("CommentList")
+
+    <!-- footer start -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="full">
+                        <div class="logo_footer">
+                            @*<a href="#"><img width="210" src="~/famm/images/logo.png" alt="#" /></a>*@
+                        </div>
+                        <div class="information_f">
+                            <p><strong>ADRES:</strong> 28 May, Dilarə Əliyeva küçəsi</p>
+                            <p><strong>TELEFON:</strong> +994 50 879 62 62</p>
+                            <p><strong>EMAIL:</strong> ramin.haciyev.2014@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="widget_menu">
+                                        <h3>Menu</h3>
+                                        <ul>
+                                            <li><a href="/MainPage/Index">Ana səhifə</a></li>
+                                            <li><a href="#">Haqqımızda</a></li>
+                                            <li><a href="#">Xidmətlərimiz</a></li>
+                                            <li><a href="/Contact/Index">Əlaqə</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                @*<div class="col-md-6">
+                                        <div class="widget_menu">
+                                            <h3>Hesab</h3>
+                                            <ul>
+                                                <li><a href="#">Hesabınız</a></li>
+                                                <li><a href="#">Checkout</a></li>
+                                                <li><a href="#">Login</a></li>
+                                                <li><a href="#">Register</a></li>
+                                                <li><a href="#">Shopping</a></li>
+                                                <li><a href="#">Widget</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>*@
+                            </div>
+                        </div>
+                        @*<div class="col-md-5">
+                            <div class="widget_menu">
+                                <h3>Yeniliklər</h3>
+                                <div class="information_f">
+                                    <p>Yeniliklərdən xəbərdar olmaq üçün abonə olun.</p>
+                                </div>
+                                <div class="form_sub">
+                                    <form>
+                                        <fieldset>
+                                            <div class="field">
+                                                <input type="email" placeholder="Mail daxil edin.." name="email" />
+                                                <input type="submit" value="Abonə ol" />
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>*@
+                        @await Html.PartialAsync("~/Views/NewsMail/SubscribeMail.cshtml")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- footer end -->
+
+    <div class="cpy_">
+        <p>© @DateTime.Now.Year </p>
+    </div>
+
+    <!-- jQery -->
+    <script src="~/famm/js/jquery-3.4.1.min.js"></script>
+    <!-- popper js -->
+    <script src="~/famm/js/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="~/famm/js/bootstrap.js"></script>
+    <!-- custom js -->
+    <script src="~/famm/js/custom.js"></script>
+</body>
+</html>
+
+
